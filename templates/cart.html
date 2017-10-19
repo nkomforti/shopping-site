@@ -6,16 +6,24 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>{{ melon_objects[0] }}</th>
-            <th>{{ melon_objects[2] }}</th>
-            <th>{{ melon_objects[3] }}</th>
-            <th>{{ melon_objects[1] }}</th>
+            <th>Melon Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
         </tr>
         </thead>
+            {% for melon in melon_objects %}
+        <tr>
+            <th>{{ melon[4] }}</th>
+            <th>{{ melon[2] }}</th>
+            <th>{{ "$%.2f" | format(melon[3]) }}</th>
+            <th>{{ "$%.2f" | format(melon[1]) }}</th>
+        </tr>
+        {% endfor %}
     </table>
-
-    <h3>Total: $27.00</h3>
 
     <a href="/checkout" class="btn btn-large btn-primary">Check Out</a>
 
 {% endblock %}
+
+
